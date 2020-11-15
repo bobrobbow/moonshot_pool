@@ -9,3 +9,5 @@ Based off a standard game of pool, but the target balls are point gravity fields
 Want to add fuzzed predicted routes and visible zones of gravity.
 
 Want to change the art to represent better the idea of some god playing pool with planets with a space background.
+
+Not yet submitted to the game jam, not sure I will, depends how much I can get a workable game out of a weird idea.

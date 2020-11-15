@@ -1,0 +1,296 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://camera.gd" type="Script" id=1]
+[ext_resource path="res://cushio.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://table.gd" type="Script" id=4]
+[ext_resource path="res://epocket.gd" type="Script" id=5]
+[ext_resource path="res://nepocket.gd" type="Script" id=6]
+[ext_resource path="res://controls.gd" type="Script" id=7]
+[ext_resource path="res://nwpocket.gd" type="Script" id=8]
+[ext_resource path="res://wpocket.gd" type="Script" id=9]
+[ext_resource path="res://sepocket.gd" type="Script" id=10]
+[ext_resource path="res://swpocket.gd" type="Script" id=11]
+[ext_resource path="res://pool-4873047_960_720.png" type="Texture" id=12]
+[ext_resource path="res://game.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 250, 437.5 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="game" type="Node"]
+script = ExtResource( 13 )
+
+[node name="table" type="Node2D" parent="."]
+position = Vector2( 50, 0 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="table_sprite" type="Sprite" parent="table"]
+position = Vector2( 249, 439 )
+rotation = 1.5708
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="table_physics" type="Area2D" parent="table"]
+visible = false
+position = Vector2( 250, 437.5 )
+space_override = 1
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.6
+angular_damp = 1.4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/table_physics"]
+shape = SubResource( 1 )
+
+[node name="controls" type="Node2D" parent="table"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="north_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 65, 0 )
+scale = Vector2( 0.8, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/north_cushion"]
+polygon = PoolVector2Array( -10, 0, -0.226274, 0, 470.506, 0.223259, 460, 10, 450, 20, 10, 20, 0, 10, -5.31242, 5.13263 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="table/north_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( -10, 0, 0.302979, 0.0893517, 471.236, -0.193878, 460, 10, 450, 20, 10, 20, 0, 10, -5.43272, 4.77156 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="north_east_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 482, 50 )
+rotation = 1.5708
+scale = Vector2( 0.9, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/north_east_cushion"]
+polygon = PoolVector2Array( 0, 0, 405, 0, 405, 10, 398, 20, 10, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="table/north_east_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 405, 0, 405, 10, 398, 20, 10, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="south_east_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 482, 464 )
+rotation = 1.5708
+scale = Vector2( 0.9, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/south_east_cushion"]
+polygon = PoolVector2Array( 0, 0, 414, 0, 410, 10, 405, 20, 5, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="table/south_east_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 414, 0, 410, 10, 405, 20, 5, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="north_west_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 16, 414.5 )
+rotation = -1.5708
+scale = Vector2( 0.9, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/north_west_cushion"]
+polygon = PoolVector2Array( 0, 0, 415, 0, 405, 10, 394, 20, 5, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="table/north_west_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( 0, 0, 415, 0, 405, 10, 395, 20, 5, 20, 0, 10, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="south_west_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 16, 823 )
+rotation = -1.5708
+scale = Vector2( 0.9, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/south_west_cushion"]
+polygon = PoolVector2Array( -13.8783, 0.149727, 0.30835, 0.00946808, 398, 0, 398, 10, 393, 20, -6.86304, 20.0735, -10.6045, 10.5325, -13.0988, 2.25435 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="table/south_west_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( -13.0988, 0.149727, 0.152485, 0.144901, 398, 0, 398, 10, 393, 20, -6.08356, 19.7928, -11.8517, 9.12943, -14.5019, 0.710953 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="south_cushion" type="StaticBody2D" parent="table"]
+position = Vector2( 433, 878 )
+rotation = 3.14159
+scale = Vector2( 0.8, 1 )
+collision_layer = 4
+collision_mask = 31
+physics_material_override = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="cushion_shape" type="CollisionPolygon2D" parent="table/south_cushion"]
+polygon = PoolVector2Array( 0, 0, 471.354, 0.107971, 460, 10, 450, 20, 10, 20, -10.9268, 0.247314, 0, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="table/south_cushion"]
+color = Color( 0.00784314, 0.207843, 0.00784314, 1 )
+polygon = PoolVector2Array( 0.297791, 0.247314, 471.003, -0.0323486, 460, 10, 450, 20, 10, 20, -9.34839, 0.106995, 0, 0 )
+
+[node name="nwpocket" type="Area2D" parent="table"]
+position = Vector2( 37.46, 21.1084 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/nwpocket"]
+shape = SubResource( 2 )
+
+[node name="nepocket" type="Area2D" parent="table"]
+position = Vector2( 460, 20.75 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/nepocket"]
+shape = SubResource( 2 )
+
+[node name="epocket" type="Area2D" parent="table"]
+position = Vector2( 485.367, 439.354 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/epocket"]
+shape = SubResource( 2 )
+
+[node name="wpocket" type="Area2D" parent="table"]
+position = Vector2( 13.2911, 438.903 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/wpocket"]
+shape = SubResource( 2 )
+
+[node name="swpocket" type="Area2D" parent="table"]
+position = Vector2( 38, 857 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/swpocket"]
+shape = SubResource( 2 )
+
+[node name="sepocket" type="Area2D" parent="table"]
+position = Vector2( 463.23, 859.383 )
+scale = Vector2( 2, 2 )
+gravity_vec = Vector2( 0, 0 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table/sepocket"]
+shape = SubResource( 2 )
+
+[node name="playable_nw" type="Position2D" parent="table"]
+position = Vector2( 81.2649, 57.9564 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="playable_se" type="Position2D" parent="table"]
+position = Vector2( 428.16, 824.807 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2( 360, 400 )
+current = true
+script = ExtResource( 1 )
+[connection signal="area_entered" from="table/nwpocket" to="table" method="_on_nwpocket_area_entered"]
+[connection signal="area_entered" from="table/nepocket" to="table" method="_on_nepocket_area_entered"]
+[connection signal="area_entered" from="table/epocket" to="table" method="_on_epocket_area_entered"]
+[connection signal="area_entered" from="table/wpocket" to="table" method="_on_wpocket_area_entered"]
+[connection signal="area_entered" from="table/swpocket" to="table" method="_on_swpocket_area_entered"]
+[connection signal="area_entered" from="table/sepocket" to="table" method="_on_sepocket_area_entered"]
